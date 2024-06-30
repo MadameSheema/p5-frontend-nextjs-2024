@@ -16,7 +16,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head></head>
+      <head>
+        <link rel="icon" href="./favicon.ico" />
+      </head>
       <body className="flex flex-col bg-neutral-100">
         <Header />
         <div className="flex flex-1 flex-col">{children}</div>
