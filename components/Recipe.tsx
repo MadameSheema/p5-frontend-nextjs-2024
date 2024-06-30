@@ -1,7 +1,6 @@
 'use client';
 
 import { ChangeEvent, useState } from 'react';
-import Image from "@/components/Image";
 import RecipeHeader from "@/components/RecipeHeader";
 import { Button } from "@/components/ui/button"
 import { Input } from './ui/input';
@@ -10,7 +9,6 @@ type Recipe = {
     title: string;
     ingredients: string[];
     instructions: string[];
-    image: string;
 };
 
 type RecipeProps = {
@@ -132,9 +130,6 @@ export default function Recipe({ recipe }: RecipeProps) {
                 {editMode && <Button className='m-2' onClick={handleSave}>Save</Button>}
 
             </div>
-
-
-
         </main>
     );
 }
