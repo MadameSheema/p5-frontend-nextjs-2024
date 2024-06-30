@@ -6,13 +6,15 @@ import {
     CardHeader,
     CardTitle,
 } from "@/components/ui/card"
+import NavigationWrapper from "@/components/NavigationWrapper";
+
 
 export default async function page() {
     const recipes = await getRecipes()
-
     return (
             <main className="flex flex-row m-4 flex-wrap space-x-4">
                 {recipes.map((recipe) => (
+                    <NavigationWrapper id={recipe.id.toString()}>
                     <Card>
                         <CardHeader>
                             <CardTitle>{recipe.title}</CardTitle>
@@ -21,6 +23,7 @@ export default async function page() {
                             <Image image={recipe.image} title= {recipe.title} id={recipe.id} />
                         </CardContent>
                     </Card>
+                    </NavigationWrapper >
                 ))}
             </main>
     );
