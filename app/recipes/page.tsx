@@ -1,4 +1,5 @@
 import { getRecipes } from "@/lib/recipes"
+import Image from "@/components/Image"
 import {
     Card,
     CardContent,
@@ -17,7 +18,7 @@ export default async function page() {
                             <CardTitle>{recipe.title}</CardTitle>
                         </CardHeader>
                         <CardContent>
-                            <img className="rounded" key={recipe.id} src={recipe.image} alt={recipe.title} />
+                            <Image image={recipe.image} title= {recipe.title} id={recipe.id} />
                         </CardContent>
                     </Card>
                 ))}

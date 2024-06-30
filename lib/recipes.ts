@@ -10,14 +10,24 @@ type Recipe = {
 
 const RECIPES_PATH = './lib/recipes.json';
 
-export const getRecipes = async (): Promise<Recipe[]> => {
+const readRecipesFromFile = (): Recipe[] => {
   const data = JSON.parse(fs.readFileSync(RECIPES_PATH, "utf-8"));
+  return data.recipes;
+};
 
-  return data.recipes.map((recipe: Recipe) => ({
+export const getRecipes = async (): Promise<Recipe[]> => {
+  const data = readRecipesFromFile()
+
+  return data.map((recipe: Recipe) => ({
     id: recipe.id,
     title: recipe.title,
     image: recipe.image,
     ingredients: recipe.ingredients,
     instructions: recipe.instructions
   }));
+};
+
+export const getRecipeById = async (recipeId: number): Promise<Recipe|undefined> => {
+  const recipes = readRecipesFromFile();
+  return recipes.find((recipe: Recipe) => recipe.id === recipeId);
 };
