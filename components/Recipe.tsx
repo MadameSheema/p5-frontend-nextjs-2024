@@ -62,7 +62,7 @@ export default function Recipe({ recipe }: RecipeProps) {
     };
 
     const handleSave = () => {
-        updateRecipe(recipe.id,ingredients, instructions)
+        updateRecipe(recipe.id, ingredients, instructions)
         setEditMode(false);
     };
 
@@ -120,7 +120,7 @@ export default function Recipe({ recipe }: RecipeProps) {
             )}
 
             <div className='flex flex-row justify-center'>
-                <Button className='m-2'  onClick={edit}>
+                <Button className='m-2' onClick={edit}>
                     {editMode ? 'Cancel' : 'Edit'}
                 </Button>
 

@@ -7,7 +7,7 @@ type WrapperProps = {
     children: React.ReactNode;
 };
 
-export default function NavigationWrapper( { id, children }: WrapperProps) {
+export default function NavigationWrapper({ id, children }: WrapperProps) {
     const router = useRouter();
     return (
         <div className="cursor-pointer" onClick={() => router.push(`/recipes/${id}`)}>{children}</div>

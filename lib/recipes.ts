@@ -41,7 +41,11 @@ export const serverUpdateRecipe = async (
     instructions: instructions
   };
 
-  await writeFile(RECIPES_PATH, JSON.stringify({ recipes: data }, null, 2), "utf-8");
+  await writeFile(
+    RECIPES_PATH,
+    JSON.stringify({ recipes: data }, null, 2),
+    "utf-8"
+  );
 };
 
 export const getRecipeById = async (

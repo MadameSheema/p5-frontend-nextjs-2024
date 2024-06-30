@@ -4,7 +4,7 @@ type imageProps = {
     id?: number,
 };
 
-export default function Image( { image, title, id }: imageProps) {
+export default function Image({ image, title, id }: imageProps) {
     return (
         <img className="rounded" key={id} src={image} alt={title} />
     )

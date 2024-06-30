@@ -19,7 +19,7 @@ export default function RootLayout({
       <head></head>
       <body className="flex flex-col bg-neutral-100">
         <Header />
-        <div className="flex flex-1 flex-col">{children}</div> 
+        <div className="flex flex-1 flex-col">{children}</div>
         <Footer />
       </body>
     </html>
