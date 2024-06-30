@@ -120,11 +120,11 @@ export default function Recipe({ recipe }: RecipeProps) {
             )}
 
             <div className='flex flex-row justify-center'>
-                <Button className='m-2' onClick={edit}>
+                <Button className="mb-12" onClick={edit}>
                     {editMode ? 'Cancel' : 'Edit'}
                 </Button>
 
-                {editMode && <Button className='m-2' onClick={handleSave}>Save</Button>}
+                {editMode && <Button className='mb-12 ml-2' onClick={handleSave}>Save</Button>}
 
             </div>
         </main>
