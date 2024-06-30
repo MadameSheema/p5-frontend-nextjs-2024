@@ -27,6 +27,7 @@ export default function Recipe({ recipe }: RecipeProps) {
             setInstructions(originalInstructions);
         }
         setEditMode(!editMode);
+        window.scrollTo(0,0);
     };
 
     const ingredientsChange = (index: number, event: ChangeEvent<HTMLInputElement>) => {
@@ -64,6 +65,7 @@ export default function Recipe({ recipe }: RecipeProps) {
     const handleSave = () => {
         updateRecipe(recipe.id, ingredients, instructions)
         setEditMode(false);
+        window.scrollTo(0,0);
     };
 
     return (
