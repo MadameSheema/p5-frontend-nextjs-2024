@@ -4,15 +4,11 @@ import { ChangeEvent, useState } from 'react';
 import RecipeHeader from "@/components/RecipeHeader";
 import { Button } from "@/components/ui/button"
 import { Input } from './ui/input';
-
-type Recipe = {
-    title: string;
-    ingredients: string[];
-    instructions: string[];
-};
+import { updateRecipe } from '@/actions/update-recipe';
+import { Recipe as RecipeType } from "@/lib/recipes";
 
 type RecipeProps = {
-    recipe: Recipe;
+    recipe: RecipeType;
 };
 
 const ListProperties = "list-disc list-inside m-10";
@@ -66,6 +62,7 @@ export default function Recipe({ recipe }: RecipeProps) {
     };
 
     const handleSave = () => {
+        updateRecipe(recipe.id,ingredients, instructions)
         setEditMode(false);
     };
 
