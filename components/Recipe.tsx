@@ -6,6 +6,8 @@ import { Button } from "@/components/ui/button"
 import { Input } from './ui/input';
 import { updateRecipe } from '@/actions/update-recipe';
 import { Recipe as RecipeType } from "@/lib/recipes";
+import { toast } from './ui/use-toast';
+import { Toaster } from './ui/toaster';
 
 type RecipeProps = {
     recipe: RecipeType;
@@ -27,7 +29,7 @@ export default function Recipe({ recipe }: RecipeProps) {
             setInstructions(originalInstructions);
         }
         setEditMode(!editMode);
-        window.scrollTo(0,0);
+        window.scrollTo(0, 0);
     };
 
     const ingredientsChange = (index: number, event: ChangeEvent<HTMLInputElement>) => {
@@ -65,7 +67,11 @@ export default function Recipe({ recipe }: RecipeProps) {
     const handleSave = () => {
         updateRecipe(recipe.id, ingredients, instructions)
         setEditMode(false);
-        window.scrollTo(0,0);
+        window.scrollTo(0, 0);
+        toast({
+            title: "Saved!",
+            description: "Recipe changes were saved correctly :)",
+        })
     };
 
     return (
@@ -129,6 +135,7 @@ export default function Recipe({ recipe }: RecipeProps) {
                 {editMode && <Button className='mb-12 ml-2' onClick={handleSave}>Save</Button>}
 
             </div>
+            <Toaster />
         </main>
     );
 }
